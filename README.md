@@ -6,7 +6,7 @@ They're completely unusable for servers with lower RAM amounts, ballooning your 
 #### Java 8
 
 ```
-java -Xms128M -Xmx{{SERVER_MEMORY}}M -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSClassUnloadingEnabled -XX:ParallelGCThreads=4 -XX:MaxGCPauseMillis=50 -XX:+DisableExplicitGC -XX:+OptimizeStringConcat -XX:+AlwaysPreTouch -XX:+UseFastAccessorMethods -XX:+UseCompressedOops -XX:+AggressiveOpts -Dterminal.jline=false -Dterminal.ansi=true -jar {{SERVER_JARFILE}}
+java -Xms128M -Xmx{{SERVER_MEMORY}}M -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSClassUnloadingEnabled -XX:MaxGCPauseMillis=50 -XX:+DisableExplicitGC -XX:+OptimizeStringConcat -XX:+AlwaysPreTouch -XX:+UseFastAccessorMethods -XX:+UseCompressedOops -XX:+AggressiveOpts -Dterminal.jline=false -Dterminal.ansi=true -jar {{SERVER_JARFILE}}
 ```
 
 Compared to Java's default flags, these keep memory extremely low with minimal performance impacts. You should expect solid performance your memory, at it's worst and fullest, to sit right around 70% if all ends well with garbage collection. If you're on higher Java versions than Java 8, I'd advise against using the flags above.
